@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "nuxt": "3.0.0",
+    "postcss": "^8.4.20",
+    "postcss-loader": "^7.0.2",
+    "sass": "^1.57.0",
+    "sass-loader": "^13.2.0"
+  },
+  "dependencies": {
+    "@googlemaps/js-api-loader": "^1.15.1",
+    "bootstrap": "^5.2.3"
+  }
+}
