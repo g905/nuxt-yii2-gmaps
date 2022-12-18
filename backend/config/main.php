@@ -1,9 +1,10 @@
 <?php
+
 $params = array_merge(
-    require __DIR__ . '/../../common/config/params.php',
-    require __DIR__ . '/../../common/config/params-local.php',
-    require __DIR__ . '/params.php',
-    require __DIR__ . '/params-local.php'
+        require __DIR__ . '/../../common/config/params.php',
+        require __DIR__ . '/../../common/config/params-local.php',
+        require __DIR__ . '/params.php',
+        require __DIR__ . '/params-local.php'
 );
 
 return [
@@ -15,6 +16,9 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -37,14 +41,16 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => true,
             'rules' => [
+                '/test' => 'test/test'
+            //['class' => 'yii\rest\UrlRule', 'controller' => 'test'],
+            //['class' => 'yii\rest\UrlRule', 'controller' => 'test'],
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
