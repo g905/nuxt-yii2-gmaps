@@ -1,9 +1,10 @@
 <template>
     <div class="container">
-        <div class="title">
-            <h1>{{ eee }}</h1>
-        </div>
-        <GMap />
+      <div class="title">
+      <h1>{{ page }}</h1>
+    </div>
+    <GMap />
+
     </div>
 </template>
 <script>
@@ -14,7 +15,7 @@
         },
         data: () => {
             return {
-                eee: "GMap Page"
+                page: "GMap Page"
             }
         },
         methods() {

@@ -40,7 +40,7 @@
                         });
             },
             async post() {
-                await $fetch('http://pwa_back.lc/api/v1/test', {
+                await $fetch('http://nuxt_back.g905.ru/api/v1/test', {
                     method: 'post',
                     headers: {
                         'Authorization': 'Basic TFV6Rklqc2JzX0QyczFWV243WFpDQkJBMmlZTG11ZUg6',
