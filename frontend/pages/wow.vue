@@ -1,9 +1,8 @@
 <template>
     <div class="container">
         <div class="title">
-            <h1 class="red">{{ tesdt }}</h1>
+            <h1 class="red">{{ test }}</h1>
         </div>
-        <div ref="ff">wewewe</div>
         <Test/>
     </div>
 </template>
@@ -17,23 +16,16 @@
         },
         data() {
             return {
-                tesdt: "WOW PAGE"
+                test: "TEST PAGE"
             }
 
         },
         mounted() {
-            console.log(this.$refs['ff']);
         }
 
     }
 </script>
 
-<script setup>
-    title: "ASdf"
-</script>
 
 <style>
-    .red {
-        color: red;
-    }
 </style>

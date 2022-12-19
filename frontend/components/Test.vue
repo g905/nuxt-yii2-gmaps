@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>This is the {{ name }} AAA component</h2 >
+        <h2>This is the {{ name }} component</h2 >
         <button @click="tesat" class="btn btn-info my-2">btn</button>
         <div class="images">
             <div class="image" v-for="img in images">
@@ -8,7 +8,7 @@
             </div>
         </div>
         <div>
-            <button @click="post" class="btn btn-info my-2">POST request</button>
+            <button @click="post" class="btn btn-info my-2">POST requestd</button>
         </div>
         <div v-if="postr" class="postr">
             <div class="name">{{ postr.name }}</div>
@@ -25,7 +25,7 @@
     export default {
         data() {
             return {
-                name: "AsdSAAf",
+                name: "Test",
                 images: [],
                 pic: null,
                 postr: null,
@@ -40,8 +40,11 @@
                         });
             },
             async post() {
-                await $fetch('http://pwa_back.lc/test', {
+                await $fetch('http://pwa_back.lc/api/v1/test', {
                     method: 'post',
+                    headers: {
+                        'Authorization': 'Basic TFV6Rklqc2JzX0QyczFWV243WFpDQkJBMmlZTG11ZUg6',
+                    },
                     body: {
                         data: {
                             name: "test name",
@@ -51,7 +54,6 @@
                 })
                         .then((data) => {
                             this.postr = data;
-                            console.log(data);
                         });
             }
         },

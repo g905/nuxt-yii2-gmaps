@@ -1,28 +1,20 @@
 <?php
 
-namespace backend\controllers;
+namespace api\controllers;
 
 use yii\filters\AccessControl;
+use yii\filters\auth\HttpBasicAuth;
 
 class TestController extends \yii\rest\ActiveController {
 
     public $modelClass = "Test";
+    public $enableCsrfValidation = false;
 
     /**
      * {@inheritdoc}
      */
     public function behaviors() {
         return [
-            'access' => [
-                'class' => AccessControl::class,
-                'rules' => [
-                    [
-                        'actions' => ['test'],
-                        'allow' => true,
-                    //'roles' => ['@'],
-                    ],
-                ],
-            ],
             'corsFilter' => [
                 'class' => \yii\filters\Cors::class,
                 'cors' => [
@@ -46,7 +38,24 @@ class TestController extends \yii\rest\ActiveController {
                     'Access-Control-Expose-Headers' => [],
                 ],
             ],
+            'authenticator' => [
+                'class' => HttpBasicAuth::class
+            ],
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'actions' => ['test'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
         ];
+    }
+
+    public function actionIndex() {
+        return "Asdf";
     }
 
     public function actionTest() {
@@ -54,7 +63,7 @@ class TestController extends \yii\rest\ActiveController {
 
         $data = \Yii::$app->request->getBodyParam("data");
 
-        $data["name"] .= " (modified by server)";
+        $data["name"] .= " (modified by server api)";
         $data["description"] .= " (modified by server)";
 
         return $data;

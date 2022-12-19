@@ -8,14 +8,14 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'app-backend',
+    'id' => 'app-api',
     'basePath' => dirname(__DIR__),
-    'controllerNamespace' => 'backend\controllers',
+    'controllerNamespace' => 'api\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-backend',
+            'csrfParam' => '_csrf-api',
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
             ]
@@ -23,11 +23,12 @@ return [
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+            'identityCookie' => ['name' => '_identity-api', 'httpOnly' => true],
+            'enableSession' => false,
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
-            'name' => 'advanced-backend',
+            'name' => 'advanced-api',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -42,14 +43,14 @@ return [
             'errorAction' => 'site/error',
         ],
         'urlManager' => [
-            //'enablePrettyUrl' => true,
-            //'showScriptName' => false,
-            //'enableStrictParsing' => false,
-            //'rules' => [
-            //'/test' => 'test/test'
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'enableStrictParsing' => true,
+            'rules' => [
+                '/api/v1/test' => 'test/test'
             //['class' => 'yii\rest\UrlRule', 'controller' => 'test'],
             //['class' => 'yii\rest\UrlRule', 'controller' => 'test'],
-            //],
+            ],
         ],
     ],
     'params' => $params,
