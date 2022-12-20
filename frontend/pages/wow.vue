@@ -10,7 +10,7 @@
 <script setup>
 
 definePageMeta({
-  middleware: 'names'
+  middleware: 'auth'
 })
 
 </script>

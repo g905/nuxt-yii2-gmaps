@@ -1,20 +1,23 @@
 <template>
-    <div class="container">
-        <div class="title">
-            <h1>{{ eee }}</h1>
-        </div>
-      <div class="content">
-        This is index page
-        </div>
+  <div class="container">
+    <div class="title">
+      <h1>{{ title }}</h1>
     </div>
+  </div>
 </template>
+
+<script setup>
+definePageMeta({
+  middleware: ["auth"]
+})
+</script>
 
 <script>
 
     export default {
         data: () => {
             return {
-                eee: "INDEX  PAGE"
+                title: "INDEX  PAGE"
             }
         },
         mounted() {
@@ -28,7 +31,7 @@
                     method: "post",
                     baseURL: config.public.apiBase,
                     headers: {
-                      'Authorization': 'Basic ' + config.public.apiKey,
+                      'Authorization': 'Bearer ' + localStorage.getItem("access_token"),
                     },
                     body: {
                         data: {

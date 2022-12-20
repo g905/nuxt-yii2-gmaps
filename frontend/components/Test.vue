@@ -46,7 +46,7 @@
                     method: 'post',
                     baseURL: config.public.apiBase,
                     headers: {
-                        'Authorization': 'Basic ' + config.public.apiKey,
+                        'Authorization': 'Bearer ' + localStorage.getItem("access_token"),
                     },
                     body: {
                         data: {

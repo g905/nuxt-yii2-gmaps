@@ -1,5 +1,6 @@
 <template>
-  <div class="row">
+  <div class="container">
+    <div class="row">
     <div class="col-3">
       <div class="points mb-3">
         <form>
@@ -33,7 +34,7 @@
       <div class="map" ref="map"></div>
     </div>
   </div>
-
+  </div>
 </template>
 
 <script>

@@ -47,7 +47,8 @@ return [
             'showScriptName' => false,
             'enableStrictParsing' => true,
             'rules' => [
-                '/api/v1/test' => 'test/test'
+                '/api/v1/test' => 'test/test',
+                '/api/v1/login' => 'test/login'
             //['class' => 'yii\rest\UrlRule', 'controller' => 'test'],
             //['class' => 'yii\rest\UrlRule', 'controller' => 'test'],
             ],
