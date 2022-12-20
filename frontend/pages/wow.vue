@@ -7,6 +7,14 @@
     </div>
 </template>
 
+<script setup>
+
+definePageMeta({
+  middleware: 'names'
+})
+
+</script>
+
 <script>
     export default {
         head() {

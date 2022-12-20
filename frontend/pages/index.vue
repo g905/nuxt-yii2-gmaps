@@ -10,6 +10,7 @@
 </template>
 
 <script>
+
     export default {
         data: () => {
             return {
@@ -21,10 +22,13 @@
         },
         methods: {
             async v() {
-                await $fetch('http://nuxt_back.g905.ru/api/v1/test', {
+
+                const config = useRuntimeConfig();
+                await $fetch('test', {
                     method: "post",
+                    baseURL: config.public.apiBase,
                     headers: {
-                      'Authorization': 'Basic TFV6Rklqc2JzX0QyczFWV243WFpDQkJBMmlZTG11ZUg6',
+                      'Authorization': 'Basic ' + config.public.apiKey,
                     },
                     body: {
                         data: {
